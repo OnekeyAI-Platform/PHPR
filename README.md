@@ -1,1 +1,5 @@
-# PHPR
+# Postoperative risk stratification in pancreatic ductal adenocarcinoma using CT habitat and peritumoral radiomics
+
+## Abstract
+
+This project investigates the prognostic value of intratumoral habitat and peritumoral CT radiomics in patients undergoing resection for pancreatic ductal adenocarcinoma. The retrospective, single-centre study included 315 patients, divided into training (n = 221) and internal test (n = 94) cohorts. Five imaging representations were evaluated: whole-tumour radiomics, 1-, 3-, and 5-mm peritumoral bands, and a three-habitat intratumoral representation derived from voxel-wise CT features. Cox-based models were developed to assess overall survival, with an integrated model combining habitat and 3-mm peritumoral scores with clinicopathological variables. The habitat model showed the strongest discrimination among the imaging-only models. The integrated model provided no clear improvement over habitat radiomics alone. These findings support further investigation of CT-based postoperative risk stratification, while independent external validation remains necessary. This repository will provide analysis code, configuration files, and supporting documentation upon acceptance of the associated manuscript.

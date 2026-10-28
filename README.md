@@ -38,27 +38,3 @@ Use a Python environment with Jupyter Notebook and the **Onekey (`onekey_algo`) 
    ```
 
 `Launch_Jupyter.bat` is an optional Windows launcher tied to the original Conda installation; adapt its paths before use. CT extraction settings are in `custom_settings/exampleCT.yaml`; `exampleMR.yaml` is an additional example configuration.
-
-## Input data
-
-Patient images and clinical records are not included. Supply NIfTI images and corresponding masks with identical filenames, such as `001.nii.gz`. Notebook-specific directories under `radio_dir` are:
-
-- `images/`, `images_std/`, and `images_re/`: images used by habitat/ICC, whole-tumor, and peritumoral analyses, respectively.
-- `masks/` and `ICC/`: primary and repeated tumor segmentations.
-- `masks_p1/`, `masks_p3/`, and `masks_p5/`: peritumoral masks.
-- `habitat/cluster_3/`: habitat segmentation maps with labels 1, 2, and 3.
-- `Survival.csv`: survival records read by Step0.
-
-Step0 also refers to `masks_PDAC_nii/*/tumor.nii.gz` for source segmentations. Habitat visualization additionally expects `habitat/cluster_3/clusters.npy`, `habitat/ch.csv`, and an example image grid under `doc/`; adapt its example path.
-
-The configured label file (default `group.csv`) should contain `ID`, `group` (`train` or `test`), `label`, `OS`, and `OSTime`. Use consistent identifiers across all files. Encode events as 1 and censoring as 0; the evaluation notebook assumes survival durations in months.
-
-The baseline notebook reads `clinic_file`; the clinical model separately reads `data/clinical.csv`, which requires numerical clinical predictors, `ID`, and `group`. Step0 exports files to `split_info/`; explicitly select the intended split in `config.yaml` or prepare `group.csv` before modeling.
-
-## Outputs and reproducibility
-
-Features and selected predictors are saved in `features/`, predictions and evaluation tables in `results/`, and figures in `img/`. The clinical model exports `data/Clinical_clinical_sur.csv` for the combined model.
-
-These are study analysis notebooks and require local data and a compatible external toolkit. Review notebook-specific paths and parameters alongside `config.yaml`. Optional tutorial calls retain the toolkit's original lookup keys as Unicode escapes for compatibility.
-
-The existing analyses include test-cohort-based penalty searches and cohort-specific log-rank cutoff searches. Review these choices when designing independent validation. English translation preserves the modeling procedures and does not establish agreement with manuscript results.

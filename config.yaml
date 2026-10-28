@@ -1,0 +1,141 @@
+radio_dir: Y:\20260427-LiuXiaoAn
+task_type: Habitat
+task_column: label
+auto__label_file:
+  - split_info\label-RND-0.csv
+  - split_info\label-RND-1.csv
+  - split_info\label-RND-2.csv
+  - split_info\label-RND-3.csv
+  - split_info\label-RND-4.csv
+  - split_info\label-RND-5.csv
+  - split_info\label-RND-6.csv
+  - split_info\label-RND-7.csv
+  - split_info\label-RND-8.csv
+  - split_info\label-RND-9.csv
+  - split_info\label-RND-10.csv
+  - split_info\label-RND-11.csv
+  - split_info\label-RND-12.csv
+  - split_info\label-RND-13.csv
+  - split_info\label-RND-14.csv
+  - split_info\label-RND-15.csv
+  - split_info\label-RND-16.csv
+  - split_info\label-RND-17.csv
+  - split_info\label-RND-18.csv
+  - split_info\label-RND-19.csv
+  - split_info\label-RND-20.csv
+  - split_info\label-RND-21.csv
+  - split_info\label-RND-22.csv
+  - split_info\label-RND-23.csv
+  - split_info\label-RND-24.csv
+  - split_info\label-RND-25.csv
+  - split_info\label-RND-26.csv
+  - split_info\label-RND-27.csv
+  - split_info\label-RND-28.csv
+  - split_info\label-RND-29.csv
+  - split_info\label-RND-30.csv
+  - split_info\label-RND-31.csv
+  - split_info\label-RND-32.csv
+  - split_info\label-RND-33.csv
+  - split_info\label-RND-34.csv
+  - split_info\label-RND-35.csv
+  - split_info\label-RND-36.csv
+  - split_info\label-RND-37.csv
+  - split_info\label-RND-38.csv
+  - split_info\label-RND-39.csv
+  - split_info\label-RND-40.csv
+  - split_info\label-RND-41.csv
+  - split_info\label-RND-42.csv
+  - split_info\label-RND-43.csv
+  - split_info\label-RND-44.csv
+  - split_info\label-RND-45.csv
+  - split_info\label-RND-46.csv
+  - split_info\label-RND-47.csv
+  - split_info\label-RND-48.csv
+  - split_info\label-RND-49.csv
+  - split_info\label-RND-50.csv
+  - split_info\label-RND-51.csv
+  - split_info\label-RND-52.csv
+  - split_info\label-RND-53.csv
+  - split_info\label-RND-54.csv
+  - split_info\label-RND-55.csv
+  - split_info\label-RND-56.csv
+  - split_info\label-RND-57.csv
+  - split_info\label-RND-58.csv
+  - split_info\label-RND-59.csv
+  - split_info\label-RND-60.csv
+  - split_info\label-RND-61.csv
+  - split_info\label-RND-62.csv
+  - split_info\label-RND-63.csv
+  - split_info\label-RND-64.csv
+  - split_info\label-RND-65.csv
+  - split_info\label-RND-66.csv
+  - split_info\label-RND-67.csv
+  - split_info\label-RND-68.csv
+  - split_info\label-RND-69.csv
+  - split_info\label-RND-70.csv
+  - split_info\label-RND-71.csv
+  - split_info\label-RND-72.csv
+  - split_info\label-RND-73.csv
+  - split_info\label-RND-74.csv
+  - split_info\label-RND-75.csv
+  - split_info\label-RND-76.csv
+  - split_info\label-RND-77.csv
+  - split_info\label-RND-78.csv
+  - split_info\label-RND-79.csv
+  - split_info\label-RND-80.csv
+  - split_info\label-RND-81.csv
+  - split_info\label-RND-82.csv
+  - split_info\label-RND-83.csv
+  - split_info\label-RND-84.csv
+  - split_info\label-RND-85.csv
+  - split_info\label-RND-86.csv
+  - split_info\label-RND-87.csv
+  - split_info\label-RND-88.csv
+  - split_info\label-RND-89.csv
+  - split_info\label-RND-90.csv
+  - split_info\label-RND-91.csv
+  - split_info\label-RND-92.csv
+  - split_info\label-RND-93.csv
+  - split_info\label-RND-94.csv
+  - split_info\label-RND-95.csv
+  - split_info\label-RND-96.csv
+  - split_info\label-RND-97.csv
+  - split_info\label-RND-98.csv
+  - split_info\label-RND-99.csv
+# label_file: split_info\label-RND-42.csv
+label_file: group.csv
+clinic_file: Y:\20260427-LiuXiaoAn\Clinical.csv
+survival_file: group.csv
+event_col: OS
+duration_col: OSTime
+ml_models:
+#   - LR
+#   - KNN
+  - RandomForest
+  - ExtraTrees
+  - XGBoost
+  - LightGBM
+  - SVM
+label_mapping: 
+  0: No
+  1: Yes
+extractor_settings: custom_settings\exampleCT.yaml
+subsets: [train, test]
+modals: [CT]
+
+summary_models: [Clinical, Radiomics, Peri1mm, Peri3mm, Peri5mm, Habitat, Combined]
+sel_model:
+  Clinical: RandomForest
+  Radiomics: LightGBM
+  DL2D: resnet50
+  DL3D: DenseNet121
+  DL25D: XGBoost
+  Combined: Nomo
+  
+save_norm: False
+metric_spec: AUC
+metric_spec_ids: 
+metric_spec_agg: mean
+save_dir: viz
+font.size: 12
+# use_youden: True
